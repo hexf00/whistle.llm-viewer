@@ -1,0 +1,29 @@
+{
+  "name": "whistle.llm-viewer",
+  "version": "1.0.0",
+  "description": "This is a whistle plugin for viewing AI requests and responses",
+  "whistleConfig": {
+    "inspectorTabs": {
+      "name": "AI请求",
+      "req": {
+        "action": "ai-req-tab.html",
+        "name": "AI请求"
+      },
+      "res": {
+        "action": "res-tab.html",
+        "name": "AI响应"
+      }
+    },
+    "composerTab": {
+        "action": "ai-req-tab.html",
+        "name": "AI请求"
+    }
+  },
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-onerror": "^4.1.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0"
+  }
+}

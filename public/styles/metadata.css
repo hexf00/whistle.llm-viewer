@@ -1,0 +1,36 @@
+/* 元数据区域 */
+.metadata {
+  background: white;
+  border: 1px solid #e1e5e9;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 12px;
+  font-size: 12px;
+}
+
+.metadata-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+}
+
+.metadata-item {
+  color: #24292e;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.metadata-label {
+  color: #586069;
+  font-weight: 500;
+}
+
+/* metadata中badge的特殊样式 */
+.metadata-item .char-badge,
+.metadata-item .token-badge {
+  font-size: 10px;
+  padding: 2px 6px;
+  margin-left: 2px;
+}

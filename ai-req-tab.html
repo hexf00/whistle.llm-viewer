@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <!-- 样式文件 -->
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/metadata.css">
+  <link rel="stylesheet" href="styles/tools.css">
+  <link rel="stylesheet" href="styles/messages.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  
+  <!-- 工具函数 -->
+  <script type="text/babel" src="utils/helpers.js"></script>
+  
+  <!-- 组件模块 -->
+  <script type="text/babel" src="req/components/MetadataComponents.js"></script>
+  <script type="text/babel" src="req/components/ToolsComponents.js"></script>
+  <script type="text/babel" src="req/components/MessageComponents.js"></script>
+  <script type="text/babel" src="req/components/ViewComponents.js"></script>
+  
+  <!-- 主应用 -->
+  <script type="text/babel" src="req/req-tab.js"></script>
+</body>
+</html>
