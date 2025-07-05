@@ -21,12 +21,16 @@ function ResUsageStats({ usage }) {
 
 // 内容显示组件
 function ResContentDisplay({ content }) {
-  if (!content || content.trim() === '') return null;
+  if (!window.ContentHelpers.hasContent(content)) {
+    return null;
+  }
 
   return (
     <div className="res-content">
       <h3>响应内容</h3>
-      <div className="content-text">{content}</div>
+      <div className="content-text">
+        {window.ContentHelpers.renderContent(content)}
+      </div>
     </div>
   );
 }

@@ -37,6 +37,8 @@ function parseLLMJson(base64Data) {
       const message = jsonData.choices[0].message;
       
       if (message.content) {
+        // 保持原始格式，不在这里转换
+        // 内容格式的处理交给 ContentHelpers 工具
         content = message.content;
       }
       

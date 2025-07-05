@@ -24,9 +24,9 @@ function calculateMessageStats(message) {
   
   let totalContent = '';
   
-  // 添加消息内容
-  if (message.content && message.content.trim() !== '') {
-    totalContent += message.content;
+  // 添加消息内容 - 使用新的内容处理工具
+  if (window.ContentHelpers.hasContent(message.content)) {
+    totalContent += window.ContentHelpers.extractTextContent(message.content);
   }
   
   // 添加工具调用内容
@@ -265,7 +265,7 @@ function filterMessages(messages, searchQuery) {
 
       // 检查内容
       if (parsed.content && matches) {
-        const contentToSearch = (message.content || '').toLowerCase();
+        const contentToSearch = window.ContentHelpers.extractTextContent(message.content).toLowerCase();
         if (!contentToSearch.includes(parsed.content.toLowerCase())) {
           matches = false;
         }
@@ -282,7 +282,7 @@ function filterMessages(messages, searchQuery) {
       }
 
       // 搜索内容
-      if (message.content && message.content.toLowerCase().includes(query)) {
+      if (window.ContentHelpers.contentIncludes(message.content, query)) {
         return true;
       }
 

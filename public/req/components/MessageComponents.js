@@ -78,9 +78,10 @@ function MessageSearchBar({ searchQuery, onSearchChange, filteredCount, totalCou
 
 // 纯粹的消息内容组件
 function MessageContent({ message }) {
+  const renderedContent = window.ContentHelpers.renderContent(message.content);
   return (
     <div className="message-content">
-      {message.content}
+      {renderedContent}
     </div>
   );
 }
@@ -111,7 +112,7 @@ function ToolCallContent({ toolCalls }) {
 
 // 统一的内容渲染组件
 function UnifiedContent({ message }) {
-  const hasContent = message.content && message.content.trim() !== '';
+  const hasContent = window.ContentHelpers.hasContent(message.content);
   const hasToolCalls = message.tool_calls && message.tool_calls.length > 0;
 
   return (
@@ -129,7 +130,7 @@ function UnifiedContent({ message }) {
 function SingleColumnCard({ message, index, isExpanded, onToggle }) {
   const { getRoleBadgeClass, calculateMessageStats, getCharBadgeClass, getTokenBadgeClass } = window.HelperUtils;
 
-  const hasContent = message.content && message.content.trim() !== '';
+  const hasContent = window.ContentHelpers.hasContent(message.content);
   const hasToolCalls = message.tool_calls && message.tool_calls.length > 0;
   const stats = calculateMessageStats(message);
   
@@ -138,8 +139,8 @@ function SingleColumnCard({ message, index, isExpanded, onToggle }) {
   let totalLength = 0;
   
   if (hasContent) {
-    previewText = message.content;
-    totalLength += message.content.length;
+    previewText = window.ContentHelpers.extractTextContent(message.content);
+    totalLength += window.ContentHelpers.getContentLength(message.content);
   }
   
   if (hasToolCalls) {
@@ -212,13 +213,13 @@ function SingleColumnCard({ message, index, isExpanded, onToggle }) {
 function DualColumnListItem({ message, index, isSelected, onSelect }) {
   const { getRoleBadgeClass, calculateMessageStats, getCharBadgeClass, getTokenBadgeClass } = window.HelperUtils;
 
-  const hasContent = message.content && message.content.trim() !== '';
+  const hasContent = window.ContentHelpers.hasContent(message.content);
   const hasToolCalls = message.tool_calls && message.tool_calls.length > 0;
   const stats = calculateMessageStats(message);
   
   let previewText = '';
   if (hasContent) {
-    previewText = message.content;
+    previewText = window.ContentHelpers.extractTextContent(message.content);
   }
   if (hasToolCalls) {
     const toolText = message.tool_calls.map(tc => tc.function?.name).join(', ');
@@ -276,7 +277,7 @@ function DualColumnDetail({ message }) {
     );
   }
 
-  const hasContent = message.content && message.content.trim() !== '';
+  const hasContent = window.ContentHelpers.hasContent(message.content);
   const hasToolCalls = message.tool_calls && message.tool_calls.length > 0;
   const stats = calculateMessageStats(message);
 

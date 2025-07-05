@@ -102,7 +102,7 @@ function ResponsePanel() {
   }
 
   // 成功状态
-  const hasContent = data.content && data.content.trim() !== '';
+  const hasContent = window.ContentHelpers.hasContent(data.content);
   const hasToolCalls = data.toolCalls && data.toolCalls.length > 0;
   const hasUsage = data.metadata && data.metadata.usage;
 
