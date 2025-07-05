@@ -1,0 +1,9 @@
+{
+	"servers": {
+		 "askhuman": {
+			"type": "stdio",
+			"command": "/workspaces/pypoetry/virtualenvs/yuumi-DC_7zFoN-py3.12/bin/python",
+			"args": ["/workspaces/dev/humanlayer2/mcp/simple_server.py"],
+		}
+	}
+}
