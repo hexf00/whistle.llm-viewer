@@ -1,5 +1,5 @@
 ---
-applyTo: '**/*.ts'
+applyTo: '**'
 ---
 # 任务完成后必须调用 askhuman 进行确认
 
